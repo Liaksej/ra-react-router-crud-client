@@ -1,11 +1,11 @@
-import CreatePost from "@/routes/CreatePost.tsx";
 import PostsList from "@/routes/PostsList.tsx";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <div>
       <div>
-        <CreatePost />
+        <Link to="posts/new">New Post</Link>
       </div>
       <div>
         <PostsList />
