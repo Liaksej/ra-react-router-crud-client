@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 
 export interface Post {
   id: number;
@@ -25,11 +25,13 @@ export async function loader() {
 export default function PostsList() {
   const posts = useLoaderData() as Post[];
   return (
-    <div>
+    <div className="border-x-2 border-b-2 divide-y-2 divide-gray-200">
       {posts.map((post) => (
-        <Link to={`/posts/${post.id}`} className="post" key={post.id}>
-          <div>{new Date(post.created).toLocaleString("ru-RU")}</div>
-          <p>{post.content}</p>
+        <Link key={post.id} to={`/posts/${post.id}`} className="post block">
+          <div className="w-full p-4 hover:bg-gray-100" >
+            <div className="text-xs">{new Date(post.created).toLocaleString("ru-RU")}</div>
+            <p>{post.content}</p>
+          </div>
         </Link>
       ))}
     </div>
