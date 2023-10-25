@@ -15,6 +15,7 @@ import EditPost, {
   action as editAction,
   loader as editLoader,
 } from "@/routes/EditPost.tsx";
+import * as process from "process";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
     action: editAction,
     loader: editLoader,
   },
-]);
+],{basename: process.env.NODE_ENV === "production" ? "/react-router-crud-client" : "/"});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
